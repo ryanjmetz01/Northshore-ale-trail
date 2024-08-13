@@ -1,0 +1,16 @@
+.brewery-image{
+    border-radius: 50%;
+    border-width: 5px;
+    border-color: rgb(255, 251, 30);
+}
+
+.brewery-name{
+    text-align: center; 
+    margin-top: 5px;
+    width: 100%;
+}
+
+.brewery-name:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}

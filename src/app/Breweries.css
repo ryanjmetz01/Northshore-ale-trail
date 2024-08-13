@@ -1,0 +1,25 @@
+.title{
+    color: rgb(255, 251, 30);
+    font-size: 36px;
+    background-color: blue;
+    margin-bottom: 25px;
+    width: 100%; 
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 125px 125px;
+    column-gap: 60px;
+    row-gap: 45px;
+
+}
+
+.brewery{
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
