@@ -4,3 +4,5 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First time using next.js. 
 Inspired by Bend, OR Ale Trail. 
 (* IN PROGRESS *)
+
+Curreently working on build minimal frontend with focus on backend. 
