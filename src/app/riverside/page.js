@@ -1,6 +1,6 @@
 import DistrictPage from "../DistrictPage"; 
 
-export default function burkeGilman() {
+export default function riverside() {
     return (
         <>
             <DistrictPage 
