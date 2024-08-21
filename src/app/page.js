@@ -15,7 +15,7 @@ export default function Home() {
             d2Img="/warehouse.jpg"
             d3Name="Wine (& Hop) Country"
             d3Img="/wine-glasses.jpg"
-            linkName1="/burkegilmantrail"
+            linkName1="/riverside"
             linkName2="/warehousedistrict"
             linkName3="/winecountry"
           />
