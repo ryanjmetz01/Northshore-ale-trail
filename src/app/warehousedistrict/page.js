@@ -1,5 +1,12 @@
-export default function wareHouse() {
+import DistrictPage from "../DistrictPage"; 
+
+export default function riverside() {
     return (
-        <p style={{margin: '6rem'}}>This is the warehouse</p>
+        <>
+            <DistrictPage 
+                distImg="/warehouse.jpg"
+                distName="Warehouse"
+            />
+        </>
     )
 }

@@ -1,5 +1,12 @@
-export default function wineCountry() {
+import DistrictPage from "../DistrictPage"; 
+
+export default function riverside() {
     return (
-        <p style={{margin: '6rem'}}>This is the wine country</p>
+        <>
+            <DistrictPage 
+                distImg="/wine-glasses.jpg"
+                distName="Wine Country"
+            />
+        </>
     )
 }

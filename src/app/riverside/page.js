@@ -5,6 +5,7 @@ export default function riverside() {
         <>
             <DistrictPage 
                 distImg="/burkegilman.jpg"
+                distName="Riverside"
             />
         </>
     )

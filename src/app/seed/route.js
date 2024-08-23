@@ -3,60 +3,68 @@ import { breweries, districts } from '../placeholder-data';
 
 const client = await db.connect(); 
 
-async function seedBreweries() {
+async function updateData(){
     await client.sql`
-        CREATE TABLE IF NOT EXISTS breweries (
-         name VARCHAR(50) PRIMARY KEY,
-         district VARCHAR(50) REFERENCES districts(name) NOT NULL,
-         website VARCHAR(100), 
-         logo VARCHAR(50) UNIQUE
-        );
-    `; 
-
-    const insertedBreweries = await Promise.all(
-        breweries.map(
-            (brew) => 
-            client.sql`
-                INSERT INTO breweries (name, district, website, logo)
-                VALUES (${brew.name}, ${brew.district}, ${brew.website}, ${brew.logo})
-                ON CONFLICT (name) DO NOTHING; 
-                `,
-        ),
-    ); 
-
-    return insertedBreweries; 
+        UPDATE breweries 
+        SET logo = '/breweries/blackravenlogo.png'
+        WHERE name = 'Black Raven Brewing'`
 }
 
-async function seedDistrict() {
-    await client.sql`
-        CREATE TABLE IF NOT EXISTS districts (
-         name VARCHAR(50) PRIMARY KEY, 
-         size INTEGER
-        ); 
-    `; 
+// async function seedBreweries() {
+//     await client.sql`
+//         CREATE TABLE IF NOT EXISTS breweries (
+//          name VARCHAR(50) PRIMARY KEY,
+//          district VARCHAR(50) REFERENCES districts(name) NOT NULL,
+//          website VARCHAR(100), 
+//          logo VARCHAR(50) UNIQUE
+//         );
+//     `; 
 
-    const insertedDistricts = await Promise.all(
-        districts.map(
-            (dist) => 
-               client.sql`
-                    INSERT INTO districts (name, size)
-                    VALUES (${dist.name}, ${dist.size})
-                    ON CONFLICT (name) DO NOTHING; 
-                `,  
-        ),
-    ); 
+//     const insertedBreweries = await Promise.all(
+//         breweries.map(
+//             (brew) => 
+//             client.sql`
+//                 INSERT INTO breweries (name, district, website, logo)
+//                 VALUES (${brew.name}, ${brew.district}, ${brew.website}, ${brew.logo})
+//                 ON CONFLICT (name) DO NOTHING; 
+//                 `,
+//         ),
+//     ); 
+
+//     return insertedBreweries; 
+// }
+
+// async function seedDistrict() {
+//     await client.sql`
+//         CREATE TABLE IF NOT EXISTS districts (
+//          name VARCHAR(50) PRIMARY KEY, 
+//          size INTEGER
+//         ); 
+//     `; 
+
+//     const insertedDistricts = await Promise.all(
+//         districts.map(
+//             (dist) => 
+//                client.sql`
+//                     INSERT INTO districts (name, size)
+//                     VALUES (${dist.name}, ${dist.size})
+//                     ON CONFLICT (name) DO NOTHING; 
+//                 `,  
+//         ),
+//     ); 
     
-    return insertedDistricts; 
-}
+//     return insertedDistricts; 
+// }
 
 export async function GET(){
     try{
         await client.sql`BEGIN`; 
-        await seedDistrict(); 
-        await seedBreweries(); 
+        // await seedDistrict(); 
+        // await seedBreweries(); 
+        await updateData(); 
         await client.sql`COMMIT`; 
 
-        return Response.json({message: 'Database seeded successfully'}); 
+        return Response.json({message: 'Database updated successfully'}); 
     } catch (error) {
         await client.sql`ROLLBACK`;
         return Response.json({error}, {status: 500}); 

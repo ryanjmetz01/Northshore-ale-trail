@@ -10,8 +10,8 @@ const Breweries = ({breweryList}) => {
                 return (
                     <div className="brewery" key={brew.name}>
                         <Brewery
-                            img={brew.image}
-                            brewLink={brew.link}
+                            img={brew.logo}
+                            brewLink={brew.website}
                             brewName={brew.name}
                         />
                     </div>
