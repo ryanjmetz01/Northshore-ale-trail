@@ -4,7 +4,7 @@ export default function riverside() {
     return (
         <>
             <DistrictPage 
-                distImg="/burkegilman.jpg"
+                distImg="/riverside.jpg"
                 distName="Riverside"
             />
         </>

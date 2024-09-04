@@ -9,8 +9,8 @@ export default function Home() {
         <h3 className={styles.explore}>Explore 3 great regions</h3>
         <div className={styles.districtContainer}>
           <Districts 
-            d1Name="Burke-Gilman Trail"
-            d1Img="/burkegilman.jpg"
+            d1Name="Riverside Route"
+            d1Img="/riverside.jpg"
             d2Name="Warehouse District"
             d2Img="/warehouse.jpg"
             d3Name="Wine (& Hop) Country"
